@@ -37,7 +37,7 @@ export default function LoginScreen() {
         console.log("Sign In button pressed");
         // Navigate to Home screen
         // @ts-ignore
-        router.replace('/home');
+        router.replace({ pathname: '/home', params: { authenticated: 'true' } });
     };
 
     return (
@@ -150,7 +150,7 @@ export default function LoginScreen() {
                                     onPress={() => {
                                         console.log('Google login pressed');
                                         // @ts-ignore
-                                        router.replace('/home');
+                                        router.replace({ pathname: '/home', params: { authenticated: 'true' } });
                                     }}
                                 >
                                     <Image
