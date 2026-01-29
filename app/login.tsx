@@ -10,7 +10,7 @@ import { Input, InputField, InputIcon } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Link, Stack } from 'expo-router';
+import { Link, router, Stack } from 'expo-router';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Image, Keyboard, KeyboardAvoidingView, Platform, Pressable } from 'react-native';
@@ -35,6 +35,9 @@ export default function LoginScreen() {
     const onSubmit = (data: LoginFormData) => {
         Keyboard.dismiss();
         console.log("Sign In button pressed");
+        // Navigate to Home screen
+        // @ts-ignore
+        router.replace('/home');
     };
 
     return (
@@ -144,7 +147,11 @@ export default function LoginScreen() {
                                     variant="outline"
                                     action="secondary"
                                     className="border-outline-200 active:bg-background-50 gap-3"
-                                    onPress={() => console.log('Google login pressed')}
+                                    onPress={() => {
+                                        console.log('Google login pressed');
+                                        // @ts-ignore
+                                        router.replace('/home');
+                                    }}
                                 >
                                     <Image
                                         source={{ uri: 'https://developers.google.com/identity/images/g-logo.png' }}
